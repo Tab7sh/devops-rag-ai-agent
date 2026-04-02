@@ -38,7 +38,7 @@ text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=10
 chunks = text_splitter.split_documents(data)
 
 embeddings = OpenAIEmbeddings()
-db = Chroma.from_documents(documents=chunks, embedding=embeddings, persist_directory="./chroma_db")
+db = Chroma.from_documents(documents=chunks, embedding=embeddings)
 
 # Professional Model Setup
 llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
